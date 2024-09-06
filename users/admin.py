@@ -8,4 +8,3 @@ class UserAdmin(admin.ModelAdmin):
     list_display = ("id", "email")
     list_filter = ("id", "email")
     search_fields = ("id", "email")
-    

@@ -8,7 +8,11 @@ from users.views import UserCreateAPIView
 app_name = UsersConfig.name
 
 urlpatterns = [
-    path("register/", UserCreateAPIView.as_view(permission_classes=(AllowAny,)), name="register"),
+    path(
+        "register/",
+        UserCreateAPIView.as_view(permission_classes=(AllowAny,)),
+        name="register",
+    ),
     path(
         "login/",
         TokenObtainPairView.as_view(permission_classes=(AllowAny,)),

@@ -8,7 +8,12 @@ NULLABLE = {"blank": True, "null": True}
 
 
 class Habit(models.Model):
-    user = models.ForeignKey(AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name="Создатель привычки", **NULLABLE)
+    user = models.ForeignKey(
+        AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        verbose_name="Создатель привычки",
+        **NULLABLE,
+    )
     place = models.CharField(max_length=100, verbose_name="Место выполнения привычки")
     time = models.TimeField(verbose_name="Начало выполнения привычки")
     action = models.TextField(verbose_name="Что нужно сделать")
