@@ -5,6 +5,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.viewsets import ModelViewSet
 
 from habits.models import Habit
+from habits.paginations import CustomPagination
 from habits.serializers import HabitSerializer
 from users.permissions import IsOwner
 
@@ -24,6 +25,7 @@ class HabitListAPIView(ListAPIView):
     queryset = Habit.objects.all()
     serializer_class = HabitSerializer
     permission_classes = [IsOwner]
+    pagination_class = CustomPagination
 
 
 class HabitRetrieveAPIView(RetrieveAPIView):
@@ -46,6 +48,8 @@ class HabitDestroyAPIView(DestroyAPIView):
 
 class HabitPublishedListAPIView(ListAPIView):
     serializer_class = HabitSerializer
+    permission_classes = [IsAuthenticated]
+    pagination_class = CustomPagination
 
     def get_queryset(self):
         """Фильтр для списка опубликованных привычек."""
