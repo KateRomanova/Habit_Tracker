@@ -1,13 +1,9 @@
 from rest_framework import serializers
 
 from habits.models import Habit
-from habits.validators import (
-    ChoiceRewardValidator,
-    DurationValidator,
-    PleasantHabitValidator,
-    PeriodicityValidator,
-    AbsenceValidator,
-)
+from habits.validators import (AbsenceValidator, ChoiceRewardValidator,
+                               DurationValidator, PeriodicityValidator,
+                               PleasantHabitValidator)
 from users.serializers import UserSerializer
 
 
